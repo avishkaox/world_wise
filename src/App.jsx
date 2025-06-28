@@ -7,6 +7,7 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
+import CountriesList from "./components/CountriesList";
 
 function App() {
 
@@ -41,7 +42,7 @@ function App() {
         <Route path="app" element={<AppLayout />}>
           <Route index element={<CityList isLoading={isLoading} cities={cities} />} />
           <Route path="cities" element={<CityList isLoading={isLoading} cities={cities}/>} />
-          <Route path="countries" element={<p>asdsss</p>} />
+          <Route path="countries" element={<CountriesList cities={cities} />} />
           <Route path="form" element={<p>form</p>} />
         </Route>
         <Route path="login" element={<Login />} />
