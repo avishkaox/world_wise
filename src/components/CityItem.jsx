@@ -11,7 +11,10 @@ const formatDate = (date) =>
 function CityItem(props) {
   return (
     <li>
-      <Link className={styles.cityItem}  to={`${props.cities.id}`}>
+      <Link
+        className={styles.cityItem}
+        to={`${props.cities.id}?lat=${props.cities.position.lat}&lng=${props.cities.position.lng}`}
+      >
         <span className={styles.emoji}>{props.cities.emoji}</span>
         <h3 className={styles.name}>{props.cities.cityName}</h3>
         <time className={styles.date}>{formatDate(props.cities.date)}</time>

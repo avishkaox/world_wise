@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import CountriesList from "./components/CountriesList";
 import City from "./components/City";
+import Form from "./components/Form";
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -50,7 +51,7 @@ function App() {
           />
           <Route path="cities/:id" element={<City cities={cities} />} />
           <Route path="countries" element={<CountriesList cities={cities} />} />
-          <Route path="form" element={<p>form</p>} />
+          <Route path="form" element={<Form/>} />
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>

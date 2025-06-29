@@ -11,6 +11,7 @@ const formatDate = (date) =>
 
 function City(props) {
   const x = useParams()
+  console.log(x);
   const currentCity = props.cities.filter((item)=>item.id == x.id)
   const { cityName, emoji, date, notes } = currentCity[0];
 
