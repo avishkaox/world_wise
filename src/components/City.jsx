@@ -1,5 +1,7 @@
 import styles from "./City.module.css";
 import { useParams } from "react-router-dom";
+import { ContextProvider } from "../contexts/CitiesContext";
+import { useContext } from "react";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -9,10 +11,11 @@ const formatDate = (date) =>
     weekday: "long",
   }).format(new Date(date));
 
-function City(props) {
-  const x = useParams()
+function City() {
+  const { cities } = useContext(ContextProvider);
+  const x = useParams();
   console.log(x);
-  const currentCity = props.cities.filter((item)=>item.id == x.id)
+  const currentCity = cities.filter((item) => item.id == x.id);
   const { cityName, emoji, date, notes } = currentCity[0];
 
   return (
@@ -47,9 +50,7 @@ function City(props) {
         </a>
       </div>
 
-      <div>
-        {/* <ButtonBack /> */}
-      </div>
+      <div>{/* <ButtonBack /> */}</div>
     </div>
   );
 }
