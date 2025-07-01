@@ -4,6 +4,7 @@ const ContextProvider = createContext();
 
 function CitiesContext({ children }) {
   const [cities, setCities] = useState([]);
+  const [citybyid, setCityById] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
@@ -23,11 +24,26 @@ function CitiesContext({ children }) {
     }
     GetCities();
   }, []);
+
+  async function getCityById(id) {
+    try {
+      const res = await fetch(`http://localhost:8000/cities/${id}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error("Something went wrong");
+      console.log(data);
+      setCityById(data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
   return (
     <ContextProvider.Provider
       value={{
         cities,
         isLoading,
+        citybyid,
+        getCityById,
       }}
     >
       {children}
