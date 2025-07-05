@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 
-const ContextProvider = createContext();
+const CitiesContext = createContext();
 
-function CitiesContext({ children }) {
+function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [citybyid, setCityById] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +38,7 @@ function CitiesContext({ children }) {
   }
 
   return (
-    <ContextProvider.Provider
+    <CitiesContext.Provider
       value={{
         cities,
         isLoading,
@@ -47,8 +47,8 @@ function CitiesContext({ children }) {
       }}
     >
       {children}
-    </ContextProvider.Provider>
+    </CitiesContext.Provider>
   );
 }
 
-export { CitiesContext, ContextProvider };
+export { CitiesContext, CitiesProvider };

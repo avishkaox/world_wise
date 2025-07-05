@@ -1,6 +1,6 @@
 import styles from "./City.module.css";
 import { useParams } from "react-router-dom";
-import { ContextProvider } from "../contexts/CitiesContext";
+import { CitiesContext } from "../contexts/CitiesContext";
 import { useContext, useEffect } from "react";
 import BackButton from "./BackButton";
 
@@ -13,7 +13,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  const { citybyid , getCityById } = useContext(ContextProvider);
+  const { citybyid , getCityById } = useContext(CitiesContext);
   const id = useParams();
   console.log(id.id);
   // const currentCity = cities.filter((item) => item.id == x.id);

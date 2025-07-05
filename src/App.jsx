@@ -9,11 +9,11 @@ import CityList from "./components/CityList";
 import CountriesList from "./components/CountriesList";
 import City from "./components/City";
 import Form from "./components/Form";
-import { CitiesContext} from "./contexts/CitiesContext";
+import { CitiesProvider} from "./contexts/CitiesContext";
 
 function App() {
   return (
-    <CitiesContext>
+    <CitiesProvider>
       <BrowserRouter>
         <Routes>
           <Route path="product" element={<Products />} />
@@ -36,7 +36,7 @@ function App() {
           <Route path="login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </CitiesContext>
+    </CitiesProvider>
   );
 }
 export default App;
